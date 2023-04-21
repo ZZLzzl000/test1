@@ -4,28 +4,28 @@
 #include<vector>
 using namespace std;
 
-#define FILENAME "stdFILE.txt" //¶¨ÒåÉú³ÉÎÄ¼şÃû³Æ
+#define FILENAME "stdFILE.txt" //å®šä¹‰ç”Ÿæˆæ–‡ä»¶åç§°
 
-//Ñ§ÉúÀà(³éÏóÀà)
+//å­¦ç”Ÿç±»(æŠ½è±¡ç±»)
 class Student {
 public:
-    virtual void showInfo() = 0; //ÏÔÊ¾¸öÈËĞÅÏ¢
-    // virtual ~Student() = 0;      //¶¨Òå´¿ĞéÎö¹¹º¯Êı±£Ö¤ÊÍ·Å¶ÑÇøÄÚ´æÊ±²»»á·¢ÉúÄÚ´æĞ¹Â©
+    virtual void showInfo() = 0; //æ˜¾ç¤ºä¸ªäººä¿¡æ¯
+    // virtual ~Student() = 0;      //å®šä¹‰çº¯è™šææ„å‡½æ•°ä¿è¯é‡Šæ”¾å †åŒºå†…å­˜æ—¶ä¸ä¼šå‘ç”Ÿå†…å­˜æ³„æ¼
 
-    string StId;     //Ñ§ºÅ
-    string m_name;  //ĞÕÃû
-    string m_Dept;  //Ö°Ôğ
+    string StId;     //å­¦å·
+    string m_name;  //å§“å
+    string m_Dept;  //èŒè´£
 };
-//ÆÕÍ¨Ñ§ÉúÀà
+//æ™®é€šå­¦ç”Ÿç±»
 class Nomalstuden : public Student {
 public:
     Nomalstuden(string Id, string name, string dep);
-    void showInfo(); //ÏÔÊ¾¸öÈËĞÅÏ¢
+    void showInfo(); //æ˜¾ç¤ºä¸ªäººä¿¡æ¯
     // ~Nomalstuden() {
     //     delete this;
     // }
 };
-//°à³¤Àà
+//ç­é•¿ç±»
 class ClassPresident : public Student {
 public:
     ClassPresident(string Id, string name, string dep);
@@ -34,7 +34,7 @@ public:
     //     delete this;
     // }
 };
-//°à¸É²¿Àà
+//ç­å¹²éƒ¨ç±»
 class Classleader : public Student {
 public:
     Classleader(string Id, string name, string dep);
@@ -44,115 +44,115 @@ public:
     // }
 };
 
-//¹ÜÀíÔ±Àà
+//ç®¡ç†å‘˜ç±»
 class StudentManager {
 public:
-    StudentManager();//¹¹Ôìº¯Êı
-    void Show_Menu(); //´òÓ¡²Ëµ¥½çÃæ
-    void Exit_System();//ÍË³öÏµÍ³
-    void Addinfo();    //Ôö¼ÓÑ§ÉúĞÅÏ¢
-    void save();       //½«Ñ§ÉúĞÅÏ¢±£´æµ½ÎÄ¼şÖĞ
-    void init_Std();   //³õÊ¼»¯Ñ§Éú
-    void show_Std();   //ÏÔÊ¾Ñ§ÉúĞÅÏ¢
-    void del_Std();    //É¾³ıÑ§ÉúĞÅÏ¢
-    void mod_Std();    //ĞŞ¸ÄÑ§ÉúĞÅÏ¢
-    void find_Std();   //²éÕÒÑ§ÉúĞÅÏ¢
-    void clean_File(); //Çå¿ÕÎÄ¼ş
-    int IsExist(string id);     //ÅĞ¶ÏÑ§ºÅÎªidµÄÑ§ÉúĞÅÏ¢ÊÇ·ñ´æÔÚ£¬²¢·µ»Ø¸ÃÑ§ÉúÏÂ±ê
-    ~StudentManager();//Îö¹¹º¯Êı
+    StudentManager();//æ„é€ å‡½æ•°
+    void Show_Menu(); //æ‰“å°èœå•ç•Œé¢
+    void Exit_System();//é€€å‡ºç³»ç»Ÿ
+    void Addinfo();    //å¢åŠ å­¦ç”Ÿä¿¡æ¯
+    void save();       //å°†å­¦ç”Ÿä¿¡æ¯ä¿å­˜åˆ°æ–‡ä»¶ä¸­
+    void init_Std();   //åˆå§‹åŒ–å­¦ç”Ÿ
+    void show_Std();   //æ˜¾ç¤ºå­¦ç”Ÿä¿¡æ¯
+    void del_Std();    //åˆ é™¤å­¦ç”Ÿä¿¡æ¯
+    void mod_Std();    //ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯
+    void find_Std();   //æŸ¥æ‰¾å­¦ç”Ÿä¿¡æ¯
+    void clean_File(); //æ¸…ç©ºæ–‡ä»¶
+    int IsExist(string id);     //åˆ¤æ–­å­¦å·ä¸ºidçš„å­¦ç”Ÿä¿¡æ¯æ˜¯å¦å­˜åœ¨ï¼Œå¹¶è¿”å›è¯¥å­¦ç”Ÿä¸‹æ ‡
+    ~StudentManager();//ææ„å‡½æ•°
 
-    vector<Student*>* m_StdArray; //´æ·ÅÔö¼ÓµÄÑ§ÉúĞÅÏ¢
-    bool m_fileIsEmpty;     //±ê¼ÇÎÄ¼şÊÇ·ñÎª¿Õ
+    vector<Student*>* m_StdArray; //å­˜æ”¾å¢åŠ çš„å­¦ç”Ÿä¿¡æ¯
+    bool m_fileIsEmpty;     //æ ‡è®°æ–‡ä»¶æ˜¯å¦ä¸ºç©º
 };
 
-//Ñ§ÉúÀà´¿ĞéÎö¹¹µÄÍâ²¿ÊµÏÖ
+//å­¦ç”Ÿç±»çº¯è™šææ„çš„å¤–éƒ¨å®ç°
 // Student :: ~Student() {
 //     delete this;
 // }
 
-//¹ÜÀíÔ±º¯ÊıÊµÏÖ
+//ç®¡ç†å‘˜å‡½æ•°å®ç°
 StudentManager::StudentManager() {
     ifstream ifs;
     ifs.open(FILENAME, ios::in);
-    //Èç¹ûÎÄ¼ş²»´æÔÚ
+    //å¦‚æœæ–‡ä»¶ä¸å­˜åœ¨
     if (!ifs.is_open()) {
-        cout << "¸ÃÎÄ¼ş²»´æÔÚ£¡" << endl;
+        cout << "è¯¥æ–‡ä»¶ä¸å­˜åœ¨ï¼" << endl;
         this->m_fileIsEmpty = true;
         this->m_StdArray = NULL;
         ifs.close();
         return;
     }
-    //ÎÄ¼ş´æÔÚµ«ÊÇÊı¾İÎª¿Õ
+    //æ–‡ä»¶å­˜åœ¨ä½†æ˜¯æ•°æ®ä¸ºç©º
     char ch;
-    ifs >> ch;       //ÏÈ¶ÁÈ¡Ò»¸ö×Ö·û
+    ifs >> ch;       //å…ˆè¯»å–ä¸€ä¸ªå­—ç¬¦
     if (ifs.eof()) {
-        cout << "¸ÃÎÄ¼şÎª¿Õ£¡" << endl;
+        cout << "è¯¥æ–‡ä»¶ä¸ºç©ºï¼" << endl;
         this->m_fileIsEmpty = true;
         this->m_StdArray = NULL;
         ifs.close();
         return;
     }
-    //ÎÄ¼ş´æÔÚ£¬²¢¼ÇÂ¼³õÊ¼Êı¾İ
+    //æ–‡ä»¶å­˜åœ¨ï¼Œå¹¶è®°å½•åˆå§‹æ•°æ®
     this->m_StdArray = new vector<Student*>;
     this->init_Std();
 }
 void StudentManager::Show_Menu() {
     cout << "-------------------------------------------" << endl;
-    cout << "------------  »¶Ó­Ê¹ÓÃÑ§Éú¹ÜÀíÏµÍ³£¡ ----------" << endl;
-    cout << "-------------  0.ÍË³ö¹ÜÀí³ÌĞò  -------------" << endl;
-    cout << "-------------  1.Ôö¼ÓÑ§ÉúĞÅÏ¢  -------------" << endl;
-    cout << "-------------  2.ÏÔÊ¾Ñ§ÉúĞÅÏ¢  -------------" << endl;
-    cout << "-------------  3.É¾³ıÑ§ÉúĞÅÏ¢  -------------" << endl;
-    cout << "-------------  4.ĞŞ¸ÄÑ§ÉúĞÅÏ¢  -------------" << endl;
-    cout << "-------------  5.²éÕÒÑ§ÉúĞÅÏ¢  -------------" << endl;
-    cout << "-------------  6.Çå¿ÕËùÓĞÊı¾İ  -------------" << endl;
+    cout << "------------  æ¬¢è¿ä½¿ç”¨å­¦ç”Ÿç®¡ç†ç³»ç»Ÿï¼ ----------" << endl;
+    cout << "-------------  0.é€€å‡ºç®¡ç†ç¨‹åº  -------------" << endl;
+    cout << "-------------  1.å¢åŠ å­¦ç”Ÿä¿¡æ¯  -------------" << endl;
+    cout << "-------------  2.æ˜¾ç¤ºå­¦ç”Ÿä¿¡æ¯  -------------" << endl;
+    cout << "-------------  3.åˆ é™¤å­¦ç”Ÿä¿¡æ¯  -------------" << endl;
+    cout << "-------------  4.ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯  -------------" << endl;
+    cout << "-------------  5.æŸ¥æ‰¾å­¦ç”Ÿä¿¡æ¯  -------------" << endl;
+    cout << "-------------  6.æ¸…ç©ºæ‰€æœ‰æ•°æ®  -------------" << endl;
     cout << "-------------------------------------------" << endl;
     cout << endl;
 }
 void StudentManager::Exit_System() {
-    cout << "¸ĞĞ»ÄúµÄÊ¹ÓÃ£¡" << endl;
+    cout << "æ„Ÿè°¢æ‚¨çš„ä½¿ç”¨ï¼" << endl;
     // system("pause");
-    exit(-1);  //ÍË³öÏµÍ³
+    exit(-1);  //é€€å‡ºç³»ç»Ÿ
 }
 void StudentManager::Addinfo() {
     if (!this->m_StdArray)
         this->m_StdArray = new vector<Student*>;
-    cout << "Ñ§ÉúĞÅÏ¢¿ªÊ¼Â¼Èë" << endl;
+    cout << "å­¦ç”Ÿä¿¡æ¯å¼€å§‹å½•å…¥" << endl;
     int i = 1;
     while (true) {
         char flag;
         string id;
         string name;
         string dep;
-        cout << "ÇëÊäÈëµÚ" << i << "¸öÑ§ÉúÑ§ºÅ£º" << endl;
+        cout << "è¯·è¾“å…¥ç¬¬" << i << "ä¸ªå­¦ç”Ÿå­¦å·ï¼š" << endl;
         cin >> id;
-        cout << "ÇëÊäÈëµÚ" << i << "¸öÑ§ÉúĞÕÃû£º" << endl;
+        cout << "è¯·è¾“å…¥ç¬¬" << i << "ä¸ªå­¦ç”Ÿå§“åï¼š" << endl;
         cin >> name;
-        cout << "ÇëÊäÈëµÚ" << i << "¸öÑ§ÉúÖ°Î»£º(°à³¤or°à¸É²¿orÆÕÍ¨Ñ§Éú)" << endl;
+        cout << "è¯·è¾“å…¥ç¬¬" << i << "ä¸ªå­¦ç”ŸèŒä½ï¼š(ç­é•¿orç­å¹²éƒ¨oræ™®é€šå­¦ç”Ÿ)" << endl;
         cin >> dep;
         Student* std = NULL;
-        if (dep == "°à³¤") {
+        if (dep == "ç­é•¿") {
             std = new ClassPresident(id, name, dep);
         }
-        else if (dep == "°à¸É²¿") {
+        else if (dep == "ç­å¹²éƒ¨") {
             std = new Classleader(id, name, dep);
         }
-        else if (dep == "ÆÕÍ¨Ñ§Éú") {
+        else if (dep == "æ™®é€šå­¦ç”Ÿ") {
             std = new Nomalstuden(id, name, dep);
         }
         else {
-            cout << "¸ÃÑ§ÉúÖ°Î»²»´æÔÚ£¡ĞÅÏ¢Â¼Èë½áÊø£¡" << endl;
+            cout << "è¯¥å­¦ç”ŸèŒä½ä¸å­˜åœ¨ï¼ä¿¡æ¯å½•å…¥ç»“æŸï¼" << endl;
             break;
         }
         this->m_StdArray->push_back(std);
         i++;
-        this->m_fileIsEmpty = false;   //¸üĞÂÎÄ¼ş·Ç¿Õ±ê¼Ç
-        cout << "ÊÇ·ñ¼ÌĞøÂ¼ÈëĞÅÏ¢£¿(y¼ÌĞøÂ¼Èë£¬n½áÊøÂ¼Èë)" << endl;
+        this->m_fileIsEmpty = false;   //æ›´æ–°æ–‡ä»¶éç©ºæ ‡è®°
+        cout << "æ˜¯å¦ç»§ç»­å½•å…¥ä¿¡æ¯ï¼Ÿ(yç»§ç»­å½•å…¥ï¼Œnç»“æŸå½•å…¥)" << endl;
         cin >> flag;
         if (flag == 'y') continue;
         else break;
     }
-    cout << "³É¹¦Ìí¼ÓÁË" << i - 1 << "ÃûÑ§ÉúĞÅÏ¢!" << endl;
+    cout << "æˆåŠŸæ·»åŠ äº†" << i - 1 << "åå­¦ç”Ÿä¿¡æ¯!" << endl;
     this->save();
     system("pause");
     system("cls");
@@ -175,13 +175,13 @@ void StudentManager::init_Std() {
     string dep;
     while (ifs >> id && ifs >> name && ifs >> dep) {
         Student* std = NULL;
-        if (dep == "°à³¤") {
+        if (dep == "ç­é•¿") {
             std = new ClassPresident(id, name, dep);
         }
-        else if (dep == "°à¸É²¿") {
+        else if (dep == "ç­å¹²éƒ¨") {
             std = new Classleader(id, name, dep);
         }
-        else if (dep == "ÆÕÍ¨Ñ§Éú") {
+        else if (dep == "æ™®é€šå­¦ç”Ÿ") {
             std = new Nomalstuden(id, name, dep);
         }
         this->m_StdArray->push_back(std);
@@ -190,7 +190,7 @@ void StudentManager::init_Std() {
 }
 void StudentManager::show_Std() {
     if (this->m_fileIsEmpty) {
-        cout << "ÎÄ¼ş²»´æÔÚ»òÕßÎÄ¼şÎª¿Õ£¡" << endl;
+        cout << "æ–‡ä»¶ä¸å­˜åœ¨æˆ–è€…æ–‡ä»¶ä¸ºç©ºï¼" << endl;
     }
     else {
         for (int i = 0; i < this->m_StdArray->size(); ++i) {
@@ -202,20 +202,20 @@ void StudentManager::show_Std() {
 }
 void StudentManager::del_Std() {
     if (this->m_fileIsEmpty) {
-        cout << "ÎÄ¼ş²»´æÔÚ»òÕßÎÄ¼şÎª¿Õ£¡" << endl;
+        cout << "æ–‡ä»¶ä¸å­˜åœ¨æˆ–è€…æ–‡ä»¶ä¸ºç©ºï¼" << endl;
     }
     else {
-        cout << "ÇëÊäÈëĞèÒªÉ¾³ıµÄÑ§ÉúÑ§ºÅ£º" << endl;
+        cout << "è¯·è¾“å…¥éœ€è¦åˆ é™¤çš„å­¦ç”Ÿå­¦å·ï¼š" << endl;
         string id;
         cin >> id;
         int index = this->IsExist(id);
         if (index != -1) {
             this->m_StdArray->erase(this->m_StdArray->begin() + index);
             this->save();
-            cout << "É¾³ı³É¹¦£¡" << endl;
+            cout << "åˆ é™¤æˆåŠŸï¼" << endl;
         }
         else {
-            cout << "É¾³ıÊ§°Ü£¬²»´æÔÚ¸ÃÑ§ºÅµÄÑ§Éú£¡" << endl;
+            cout << "åˆ é™¤å¤±è´¥ï¼Œä¸å­˜åœ¨è¯¥å­¦å·çš„å­¦ç”Ÿï¼" << endl;
         }
     }
     system("pause");
@@ -233,10 +233,10 @@ int StudentManager::IsExist(string id) {
 }
 void StudentManager::mod_Std() {
     if (this->m_fileIsEmpty) {
-        cout << "ÎÄ¼ş²»´æÔÚ»òÕßÎÄ¼şÎª¿Õ" << endl;
+        cout << "æ–‡ä»¶ä¸å­˜åœ¨æˆ–è€…æ–‡ä»¶ä¸ºç©º" << endl;
     }
     else {
-        cout << "ÇëÊäÈëĞèÒªĞŞ¸ÄµÄÑ§ÉúÑ§ºÅ£º" << endl;
+        cout << "è¯·è¾“å…¥éœ€è¦ä¿®æ”¹çš„å­¦ç”Ÿå­¦å·ï¼š" << endl;
         string id;
         cin >> id;
         int index = this->IsExist(id);
@@ -246,53 +246,53 @@ void StudentManager::mod_Std() {
             string newname;
             string newdep;
             Student* std = NULL;
-            cout << "ËÑË÷µ½Ñ§ºÅÎª" << id << "µÄÑ§Éú£¬ÇëÊäÈëĞÂÑ§ºÅ£º" << endl;
+            cout << "æœç´¢åˆ°å­¦å·ä¸º" << id << "çš„å­¦ç”Ÿï¼Œè¯·è¾“å…¥æ–°å­¦å·ï¼š" << endl;
             cin >> newid;
-            cout << "ÇëÊäÈëĞÂĞÕÃû£º" << endl;
+            cout << "è¯·è¾“å…¥æ–°å§“åï¼š" << endl;
             cin >> newname;
-            cout << "ÇëÊäÈëĞÂÖ°Ôğ£º" << endl;
+            cout << "è¯·è¾“å…¥æ–°èŒè´£ï¼š" << endl;
             cin >> newdep;
-            if (newdep == "°à³¤") {
+            if (newdep == "ç­é•¿") {
                 std = new ClassPresident(newid, newname, newdep);
             }
-            else if (newdep == "°à¸É²¿") {
+            else if (newdep == "ç­å¹²éƒ¨") {
                 std = new Classleader(newid, newname, newdep);
             }
-            else if (newdep == "ÆÕÍ¨Ñ§Éú") {
+            else if (newdep == "æ™®é€šå­¦ç”Ÿ") {
                 std = new Nomalstuden(newid, newname, newdep);
             }
             this->m_StdArray->at(index) = std;
-            cout << "ĞŞ¸Ä³É¹¦£¡" << endl;
+            cout << "ä¿®æ”¹æˆåŠŸï¼" << endl;
             this->save();
         }
         else {
-            cout << "ĞŞ¸ÄÊ§°Ü£¬²»´æÔÚ¸ÃÑ§ºÅµÄÑ§Éú£¡" << endl;
+            cout << "ä¿®æ”¹å¤±è´¥ï¼Œä¸å­˜åœ¨è¯¥å­¦å·çš„å­¦ç”Ÿï¼" << endl;
         }
     }
     system("pause");
 }
 void StudentManager::find_Std() {
     if (this->m_fileIsEmpty) {
-        cout << "ÎÄ¼ş²»´æÔÚ»òÕßÎÄ¼şÎª¿Õ" << endl;
+        cout << "æ–‡ä»¶ä¸å­˜åœ¨æˆ–è€…æ–‡ä»¶ä¸ºç©º" << endl;
     }
     else {
-        cout << "ÇëÊäÈëĞèÒª²éÕÒµÄÑ§ÉúÑ§ºÅ£º" << endl;
+        cout << "è¯·è¾“å…¥éœ€è¦æŸ¥æ‰¾çš„å­¦ç”Ÿå­¦å·ï¼š" << endl;
         string id;
         cin >> id;
         int index = this->IsExist(id);
         if (index != -1) {
-            cout << "²éÕÒ³É¹¦£¡¸ÃÑ§ÉúĞÅÏ¢ÈçÏÂ£º" << endl;
+            cout << "æŸ¥æ‰¾æˆåŠŸï¼è¯¥å­¦ç”Ÿä¿¡æ¯å¦‚ä¸‹ï¼š" << endl;
             this->m_StdArray->at(index)->showInfo();
         }
         else {
-            cout << "²éÕÒÊ§°Ü£¡¸ÃÑ§Éú²»´æÔÚ£¡" << endl;
+            cout << "æŸ¥æ‰¾å¤±è´¥ï¼è¯¥å­¦ç”Ÿä¸å­˜åœ¨ï¼" << endl;
         }
     }
 }
 void StudentManager::clean_File() {
-    cout << "È·¶¨Çå¿ÕËùÓĞÊı¾İ£¿" << endl;
-    cout << "1,È·¶¨" << endl;
-    cout << "2,·µ»Ø" << endl;
+    cout << "ç¡®å®šæ¸…ç©ºæ‰€æœ‰æ•°æ®ï¼Ÿ" << endl;
+    cout << "1,ç¡®å®š" << endl;
+    cout << "2,è¿”å›" << endl;
     int selet = 0;
     cin >> selet;
     if (selet == 1) {
@@ -304,7 +304,7 @@ void StudentManager::clean_File() {
             this->m_fileIsEmpty = true;
             this->m_StdArray = NULL;
         }
-        cout << "Çå¿Õ³É¹¦£¡" << endl;
+        cout << "æ¸…ç©ºæˆåŠŸï¼" << endl;
     }
     system("pause");
     system("cls");
@@ -317,78 +317,78 @@ StudentManager :: ~StudentManager() {
     }
 }
 
-//ÆÕÍ¨Ñ§Éúº¯ÊıÊµÏÖ
+//æ™®é€šå­¦ç”Ÿå‡½æ•°å®ç°
 Nomalstuden::Nomalstuden(string Id, string name, string dep) {
     this->StId = Id;
     this->m_name = name;
     this->m_Dept = dep;
 }
 void Nomalstuden::showInfo() {
-    cout << "Ñ§ÉúÑ§ºÅ£º" << this->StId
-        << "\tÑ§ÉúĞÕÃû£º" << this->m_name
-        << "\tÑ§ÉúÖ°Î»£º" << this->m_Dept
-        << "\tÑ§ÉúÈÎÎñ£º×ñÊØ°à¼¶¼ÍÂÉ" << endl;
+    cout << "å­¦ç”Ÿå­¦å·ï¼š" << this->StId
+        << "\tå­¦ç”Ÿå§“åï¼š" << this->m_name
+        << "\tå­¦ç”ŸèŒä½ï¼š" << this->m_Dept
+        << "\tå­¦ç”Ÿä»»åŠ¡ï¼šéµå®ˆç­çº§çºªå¾‹" << endl;
 }
 
-//°à³¤º¯ÊıÊµÏÖ
+//ç­é•¿å‡½æ•°å®ç°
 ClassPresident::ClassPresident(string Id, string name, string dep) {
     this->StId = Id;
     this->m_name = name;
     this->m_Dept = dep;
 }
 void ClassPresident::showInfo() {
-    cout << "Ñ§ÉúÑ§ºÅ£º" << this->StId
-        << "\tÑ§ÉúĞÕÃû£º" << this->m_name
-        << "\tÑ§ÉúÖ°Î»£º" << this->m_Dept
-        << "\tÑ§ÉúÈÎÎñ£º¹ÜÀí°à¸É²¿£¬Óë¸¨µ¼Ô±¶Ô½Ó£¬´øÁì°à¼¶" << endl;
+    cout << "å­¦ç”Ÿå­¦å·ï¼š" << this->StId
+        << "\tå­¦ç”Ÿå§“åï¼š" << this->m_name
+        << "\tå­¦ç”ŸèŒä½ï¼š" << this->m_Dept
+        << "\tå­¦ç”Ÿä»»åŠ¡ï¼šç®¡ç†ç­å¹²éƒ¨ï¼Œä¸è¾…å¯¼å‘˜å¯¹æ¥ï¼Œå¸¦é¢†ç­çº§" << endl;
 }
 
-//°à¸É²¿º¯ÊıÊµÏÖ
+//ç­å¹²éƒ¨å‡½æ•°å®ç°
 Classleader::Classleader(string Id, string name, string dep) {
     this->StId = Id;
     this->m_name = name;
     this->m_Dept = dep;
 }
 void Classleader::showInfo() {
-    cout << "Ñ§ÉúÑ§ºÅ£º" << this->StId
-        << "\tÑ§ÉúĞÕÃû£º" << this->m_name
-        << "\tÑ§ÉúÖ°Î»£º" << this->m_Dept
-        << "\tÑ§ÉúÈÎÎñ£ºÂÄĞĞ×Ô¼ºµÄÖ°Ôğ£¬ºÍ¸÷¿ÆÀÏÊ¦¶Ô½Ó£¬¹ÜÀí°à¼¶Ñ§Éú" << endl;
+    cout << "å­¦ç”Ÿå­¦å·ï¼š" << this->StId
+        << "\tå­¦ç”Ÿå§“åï¼š" << this->m_name
+        << "\tå­¦ç”ŸèŒä½ï¼š" << this->m_Dept
+        << "\tå­¦ç”Ÿä»»åŠ¡ï¼šå±¥è¡Œè‡ªå·±çš„èŒè´£ï¼Œå’Œå„ç§‘è€å¸ˆå¯¹æ¥ï¼Œç®¡ç†ç­çº§å­¦ç”Ÿ" << endl;
 }
 
-//Ö÷º¯Êı
+//ä¸»å‡½æ•°
 int main() {
-    StudentManager stm;     //ÊµÀı»¯¹ÜÀíÔ±
-    int choice;             //´æ´¢ÓÃ»§Ñ¡Ïî
+    StudentManager stm;     //å®ä¾‹åŒ–ç®¡ç†å‘˜
+    int choice;             //å­˜å‚¨ç”¨æˆ·é€‰é¡¹
     while (true) {
-        stm.Show_Menu();    //µ÷ÓÃ´òÓ¡½çÃæ³ÉÔ±º¯Êı
-        cout << "ÇëÊäÈëÄúµÄÑ¡Ôñ£º" << endl;
+        stm.Show_Menu();    //è°ƒç”¨æ‰“å°ç•Œé¢æˆå‘˜å‡½æ•°
+        cout << "è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©ï¼š" << endl;
         cin >> choice;
         switch (choice)
         {
-        case 0:             //ÍË³öÏµÍ³
+        case 0:             //é€€å‡ºç³»ç»Ÿ
             stm.Exit_System();
             break;
-        case 1:             //Ôö¼ÓÑ§Éú
+        case 1:             //å¢åŠ å­¦ç”Ÿ
             stm.Addinfo();
             break;
-        case 2:             //ÏÔÊ¾Ñ§Éú
+        case 2:             //æ˜¾ç¤ºå­¦ç”Ÿ
             stm.show_Std();
             break;
-        case 3:             //É¾³ıÑ§Éú
+        case 3:             //åˆ é™¤å­¦ç”Ÿ
             stm.del_Std();
             break;
-        case 4:             //ĞŞ¸ÄÑ§Éú
+        case 4:             //ä¿®æ”¹å­¦ç”Ÿ
             stm.mod_Std();
             break;
-        case 5:             //²éÕÒÑ§Éú
+        case 5:             //æŸ¥æ‰¾å­¦ç”Ÿ
             stm.find_Std();
             break;
-        case 6:             //Çå¿ÕÎÄµµ
+        case 6:             //æ¸…ç©ºæ–‡æ¡£
             stm.clean_File();
             break;
         default:
-            system("cls");  //ÇåÆÁ²Ù×÷
+            system("cls");  //æ¸…å±æ“ä½œ
             break;
         }
     }
@@ -396,6 +396,3 @@ int main() {
     system("pause");
     return 0;
 }
-¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-°æÈ¨ÉùÃ÷£º±¾ÎÄÎªCSDN²©Ö÷¡¸YXXYX¡¹µÄÔ­´´ÎÄÕÂ£¬×ñÑ­CC 4.0 BY - SA°æÈ¨Ğ­Òé£¬×ªÔØÇë¸½ÉÏÔ­ÎÄ³ö´¦Á´½Ó¼°±¾ÉùÃ÷¡£
-Ô­ÎÄÁ´½Ó£ºhttps ://blog.csdn.net/YXXXYX/article/details/119154840
